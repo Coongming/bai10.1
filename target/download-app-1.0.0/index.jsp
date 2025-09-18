@@ -5,29 +5,26 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>Murach's Java Servlets and JSP</title>
     <link rel="stylesheet" href="styles/main.css" type="text/css"/>
 </head>
 <body>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:if test="${sqlStatement == null}">
+    <c:set var="sqlStatement" value="select * from User" />
+</c:if>
+    
+<h1>The SQL Gateway</h1>
+<p>Enter an SQL statement and click the Execute button.</p>
+<p><b>SQL statement:</b></p>
+<form action="sqlGateway" method="post">
+   <textarea name="sqlStatement" cols="60" rows="8">${sqlStatement}</textarea>
+   <input type="submit" value="Execute">
+</form>
 
-<h1>List of albums</h1>
-
-<p>
-<a href="download?action=checkUser&amp;productCode=8601">
-    86 (the band) - True Life Songs and Pictures
-</a><br>
-
-<a href="download?action=checkUser&amp;productCode=pf01">
-    Paddlefoot - The First CD
-</a><br>
-<a href="download?action=checkUser&amp;productCode=pf02">
-    Paddlefoot - The Second CD
-</a><br>
-
-<a href="download?action=checkUser&amp;productCode=jr01">
-    Joe Rut - Genuine Wood Grained Finish
-</a>
-</p>
+<p><b>SQL result:</b></p>
+${sqlResult}
 
 </body>
 </html>

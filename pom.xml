@@ -17,7 +17,7 @@
   </properties>
 
   <dependencies>
-    <!-- Servlet API do Tomcat cung cấp -->
+    <!-- Servlet API, do Tomcat cung cấp -->
     <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
@@ -35,6 +35,18 @@
       <groupId>org.glassfish.web</groupId>
       <artifactId>jakarta.servlet.jsp.jstl</artifactId>
       <version>3.0.1</version>
+    </dependency>
+
+    <!--
+      Để sử dụng DataSource và InitialContext, bạn cần dependency
+      cho Jakarta Enterprise Beans API, bao gồm cả JNDI và DataSource.
+      Đây là cách tiếp cận đúng cho Jakarta EE.
+    -->
+    <dependency>
+      <groupId>jakarta.ejb</groupId>
+      <artifactId>jakarta.ejb-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
     </dependency>
 
   </dependencies>
